@@ -1,3 +1,6 @@
+
+EN | [中文](docs/README-zh.md)
+
 # simple-note.nvim
 
 Local-first note workflow for Neovim: vault, daily notes, templates, TOML frontmatter, and a dashboard entry.
@@ -159,13 +162,15 @@ basename = "{{title}}"
 | `{{time}}` | Current time using `time_format`. |
 | `{{time:HH:mm}}` | Current time using a custom token format. |
 | `{{timestamp}}` | Current time using `timestamp_format`; does not accept an argument. |
-| `{{input}}` | Last path segment / title input; available for `new`, `ntemplate`, `today`, `daily`. |
-| `{{hinput}}` | `-input`, or empty when input is empty. |
-| `{{uinput}}` | `_input`, or empty when input is empty. |
+| `{{input}}` | Last path segment / title input; **only rendered inside `basename`**. |
+| `{{hinput}}` | `-input`; **only rendered inside `basename`**, empty when input is empty. |
+| `{{uinput}}` | `_input`; **only rendered inside `basename`**, empty when input is empty. |
 | `{{title}}` | File stem after the target path is known. |
 | `{{daily_date}}` | Daily target date; available only for `today`/`daily`, otherwise left literal. |
 
 Unknown variables and invalid forms remain as literal `{{...}}` text.
+
+`{{input}}`, `{{hinput}}`, and `{{uinput}}` are special: they are **only** parsed while rendering `basename`. In frontmatter or body they remain literal `{{input}}` / `{{hinput}}` / `{{uinput}}`.
 
 ### `basename`
 
