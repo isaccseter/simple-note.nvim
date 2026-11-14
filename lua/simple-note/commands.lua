@@ -47,7 +47,7 @@ function M.complete(arglead, cmdline, cursorpos)
   end
 
   local sub = rest[1]
-  if sub == "ntemplate" or sub == "template" or sub == "new_from_template" then
+  if sub == "ntemplate" or sub == "template" then
     local template_pos = (#rest == 1 and trailing) or (#rest == 2 and not trailing)
     if template_pos then
       pcall(require, "simple-note.core")

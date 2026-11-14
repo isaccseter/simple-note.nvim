@@ -45,7 +45,6 @@ assert(contains(c, "sub/b"), "template sub/b")
 assert(not contains(c, ".hidden"), "hidden excluded")
 assert(package.loaded["simple-note.core"] ~= nil, "template Tab loads core")
 assert(contains(comp("Snote ntemplate "), "a"), "ntemplate completion")
-assert(contains(comp("Snote new_from_template "), "a"), "alias completion")
 assert(not contains(comp("Snote template a "), "a"), "title position no template")
 
 vim.fn.writefile({ "+++", "+++", "c" }, tmp .. "/Templates/c.md")
